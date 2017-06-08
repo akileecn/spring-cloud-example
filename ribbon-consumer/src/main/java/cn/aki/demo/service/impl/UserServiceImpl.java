@@ -32,6 +32,7 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	// 按请求的顺序分配批处理的结果
 	@HystrixCollapser(batchMethod = "getAll", scope = com.netflix.hystrix.HystrixCollapser.Scope.GLOBAL, collapserProperties = {
+			// 参考HystrixCollapserProperties
 			@HystrixProperty(name = "timerDelayInMilliseconds", value = "5000")
 	})
 	public User get(Long id) {
