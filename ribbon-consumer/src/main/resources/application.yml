@@ -9,3 +9,9 @@ eureka:
 
 server:
   port: 9000
+
+#日志
+logging:
+  level:
+    cn.aki.demo: debug
+

@@ -1,7 +1,11 @@
 package cn.aki.demo;
 
+import cn.aki.demo.filter.MyHystrixFilter;
+import com.google.common.collect.Lists;
+import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -25,4 +29,13 @@ public class ConsumerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ConsumerApplication.class, args);
 	}
+
+	@Bean
+	public FilterRegistrationBean filterRegistrationBean(){
+		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+		registrationBean.setFilter(new MyHystrixFilter());
+		registrationBean.setUrlPatterns(Lists.newArrayList("/cache/*", "/collapse/*"));
+		return registrationBean;
+	}
+
 }
