@@ -1,4 +1,4 @@
-package cn.aki.demo.controller;
+package cn.aki.demo.resource;
 
 import cn.aki.demo.entity.User;
 import org.slf4j.Logger;
@@ -16,9 +16,9 @@ import java.util.UUID;
  * Created by Administrator on 2017/6/6.
  */
 @RestController
-public class UserController {
+public class UserResource {
 
-	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserResource.class);
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
 	public User get(@PathVariable Long id){

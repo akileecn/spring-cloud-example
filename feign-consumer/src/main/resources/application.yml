@@ -10,8 +10,19 @@ eureka:
 server:
   port: 9001
 
+#feign中hystrix默认关闭
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      min-request-size:
+
+
 #日志
 logging:
   level:
     cn.aki.demo: debug
+    #feign客户端日志,需设置feign Logger.Level才会显示日志
+    cn.aki.client.RefactorHelloClient: debug
 

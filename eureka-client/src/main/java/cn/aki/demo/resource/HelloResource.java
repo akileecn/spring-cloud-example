@@ -1,4 +1,4 @@
-package cn.aki.demo.controller;
+package cn.aki.demo.resource;
 
 import cn.aki.demo.entity.User;
 import org.slf4j.Logger;
@@ -18,9 +18,9 @@ import java.util.Random;
  * Created by Administrator on 2017/5/27.
  */
 @RestController
-public class HelloController {
+public class HelloResource {
 
-	private static final Logger log = LoggerFactory.getLogger(HelloController.class);
+	private static final Logger log = LoggerFactory.getLogger(HelloResource.class);
 
 	@Qualifier("discoveryClient")
 	@Autowired

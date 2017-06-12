@@ -3,17 +3,12 @@ package cn.aki.demo.controller;
 import cn.aki.demo.entity.User;
 import cn.aki.demo.service.IHelloService;
 import cn.aki.demo.service.IUserService;
-import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import rx.Observable;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Administrator on 2017/5/27.
