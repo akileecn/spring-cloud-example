@@ -21,7 +21,10 @@
         <module>hystrix-dashboard</module>
         <!-- 集群监控 -->
         <module>turbine</module>
+        <!-- 声明式服务调用 -->
         <module>feign-consumer</module>
+        <!-- 接口网关 -->
+        <module>api-gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -50,6 +53,12 @@
             <artifactId>lombok</artifactId>
             <version>1.16.16</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- json -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.12</version>
         </dependency>
     </dependencies>
 

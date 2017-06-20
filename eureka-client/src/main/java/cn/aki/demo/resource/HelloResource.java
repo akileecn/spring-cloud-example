@@ -11,8 +11,6 @@ import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Random;
-
 
 /**
  * Created by Administrator on 2017/5/27.
@@ -34,10 +32,10 @@ public class HelloResource {
 		ServiceInstance instance = client.getLocalServiceInstance();
 		String instanceId = ((EurekaRegistration) registration).getInstanceConfig().getInstanceId();
 
-		int time = new Random().nextInt(2000);
-		Thread.sleep(time);
+//		int time = new Random().nextInt(2000);
+//		Thread.sleep(time);
 
-		log.info("instanceId: {}, sleep:{}", instanceId, time);
+//		log.info("instanceId: {}, sleep:{}", instanceId, time);
 		return "hello world " + instance.getPort();
 	}
 
