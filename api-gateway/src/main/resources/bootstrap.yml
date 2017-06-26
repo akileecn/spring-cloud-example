@@ -7,6 +7,11 @@ spring:
       discovery:
         enabled: true
         service-id: config-server
+      #授权校验
+      password: 4897d081-529c-4718-8fb2-e38da3623e39
+  rabbitmq:
+    username: springcloud
+    password: 123qwe
 
 server:
   port: 5555

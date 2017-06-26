@@ -27,6 +27,8 @@
         <module>api-gateway</module>
         <!-- 配置中心 -->
         <module>config-server</module>
+        <!-- 消息推送 -->
+        <module>rabbitmq</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

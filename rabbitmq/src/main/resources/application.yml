@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: rabbitmq
+  rabbitmq:
+    username: springcloud
+    password: 123qwe

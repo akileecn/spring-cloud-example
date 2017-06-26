@@ -21,5 +21,16 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
+        <!-- 安全校验 -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-security</artifactId>-->
+        <!--</dependency>-->
+        <!-- 消息总线 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <!--<artifactId>spring-cloud-starter-bus-amqp</artifactId>-->
+            <artifactId>spring-cloud-starter-bus-kafka</artifactId>
+        </dependency>
     </dependencies>
 </project>

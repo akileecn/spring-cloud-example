@@ -6,9 +6,18 @@ spring:
       server:
         git:
           uri: https://github.com/akileecn/spring-cloud-config.git
-          search-paths: /config-repo
+          #可以是用{application}{profile}{label}
+          search-paths: '{application}'
+#          search-paths: /config-repo
           #username:
           #password:
+  rabbitmq:
+    username: springcloud
+    password: 123qwe
+#授权
+security:
+  user:
+    password: 4897d081-529c-4718-8fb2-e38da3623e39
 
 server:
   port: 7001
@@ -22,3 +31,18 @@ eureka:
 logging:
   level:
     cn.aki.demo: debug
+
+#非对称加密,对含{cipher}的值解密后发送非客户端
+#keytool -genkeypair -alias mytestkey -keyalg RSA -dname "CN=Web Server,OU=Unit,O=Organization,L=City,S=State,C=US"
+# -keypass changeme -keystore server.jks -storepass letmein
+encrypt:
+  key-store:
+    location: server.jks
+    alias: mytestkey
+    password: letmein
+    secret: changeme
+
+#开放/bus/refresh接口
+management:
+  security:
+    enabled: false
