@@ -1,0 +1,13 @@
+spring:
+  rabbitmq:
+    username: springcloud
+    password: 123qwe
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: output
+        output:
+          destination: input
+server:
+  port: 8082
