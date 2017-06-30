@@ -8,6 +8,11 @@ spring:
         input:
           #分组
           group: group
+        # 自定义,input和output的destination相同时实现信息交互
+        custom-input:
+          destination: custom-topic
+        custom-output:
+          destination: custom-topic
 
 server:
   port: 8081

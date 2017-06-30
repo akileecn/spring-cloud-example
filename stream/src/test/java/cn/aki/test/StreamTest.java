@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.integration.support.MessageBuilder;
+import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -21,22 +22,15 @@ public class StreamTest {
 	@Autowired
 	private ISinkSender sender;
 
-	@Autowired @Qualifier(ISinkSender.TOPIC)
+	@Autowired @Qualifier(ISinkSender.OUTPUT)
 	private MessageChannel channel;
 
 	@Test
 	public void test(){
 		//可使用接口实现类也可以使用MessageChannel
 //		sender.output().send(MessageBuilder.withPayload("message from sender").build());
-		channel.send(MessageBuilder.withPayload("message from channel").build());
+		Message<String> message = MessageBuilder.withPayload("message from channel").build();
+		channel.send(message);
 	}
 
-	@After
-	public void after(){
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
 }
