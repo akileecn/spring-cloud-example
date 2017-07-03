@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: zipkin-server
+  rabbitmq:
+    username: springcloud
+    password: 123qwe
+  datasource:
+    url: jdbc:mysql://localhost:3306/zipkin
+    username: root
+    password: 234wer
+server:
+  port: 9411
+
+#zipkin.server.ConditionalOnSelfTracing
+zipkin:
+  storage:
+    type: mysql

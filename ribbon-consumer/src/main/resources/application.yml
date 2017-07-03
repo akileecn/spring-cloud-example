@@ -1,7 +1,12 @@
 spring:
   application:
     name: ribbon-consumer
-
+  sleuth:
+    sampler:
+      percentage: 1 #默认0.1
+  rabbitmq:
+    username: springcloud
+    password: 123qwe
 eureka:
   client:
     service-url:

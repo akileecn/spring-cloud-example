@@ -6,7 +6,8 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheKey;
 import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheRemove;
 import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheResult;
-import com.netflix.ribbon.proxy.annotation.Hystrix;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -18,6 +19,7 @@ import java.util.UUID;
  */
 @Service("helloService")
 public class HelloServiceImpl implements IHelloService{
+	private static final Logger logger = LoggerFactory.getLogger(HelloServiceImpl.class);
 	@Autowired
 	private RestTemplate restTemplate;
 
@@ -25,6 +27,7 @@ public class HelloServiceImpl implements IHelloService{
 	// 线程池划分默认根据groupKey,groupKey默认为类名,commandKey默认为方法名
 	@HystrixCommand(fallbackMethod = "error", threadPoolKey = "HelloService.hello")
 	public String hello() {
+		logger.info("call HELLO-SERVICE:hello");
 		return restTemplate.getForEntity("http://HELLO-SERVICE:hello", String.class).getBody();
 	}
 

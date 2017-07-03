@@ -32,6 +32,8 @@
         <!-- 消息驱动 -->
         <module>stream</module>
         <module>stream-sub</module>
+        <!-- 服务跟踪 -->
+        <module>zipkin-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

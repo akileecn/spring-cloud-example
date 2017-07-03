@@ -9,7 +9,10 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration;
+import org.springframework.cloud.sleuth.Span;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 /**
@@ -28,14 +31,15 @@ public class HelloResource {
 
 	@ResponseBody
 	@RequestMapping("/hello")
-	public String hello() throws InterruptedException {
+	public String hello(HttpServletRequest request) throws InterruptedException {
 		ServiceInstance instance = client.getLocalServiceInstance();
 		String instanceId = ((EurekaRegistration) registration).getInstanceConfig().getInstanceId();
 
 //		int time = new Random().nextInt(2000);
 //		Thread.sleep(time);
-
 //		log.info("instanceId: {}, sleep:{}", instanceId, time);
+
+		log.info(Span.TRACE_ID_NAME + ":{}", request.getHeader(Span.TRACE_ID_NAME));
 		return "hello world " + instance.getPort();
 	}
 
